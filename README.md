@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+# 关于博客
 
-You can use the [editor on GitHub](https://github.com/yizhixiaoyao0/yizhixiaoyao0.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+### 新建一篇博客文章
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+> 在 hexo/source/\_posts 文件夹下新建 md 文件(不用加.md 后缀）
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+ hexo new 文件名
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+### 最后输入以下命令生成网站文件并部署：
 
-### Jekyll Themes
+> https/yizhixiaoyao0.github.io/
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yizhixiaoyao0/yizhixiaoyao0.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+```
+hexo clean // 清空本地缓存，解决由于本地缓存导致部署无效
+hexo g // == hexo generate #生成静态网页
+gulp // 压缩生成的静态资料（如果安装gulp插件，具体安装方法见下面）
+hexo d // == hexo deploy #开始部署
+hexo s // == hexo server #启动服务器 本地调试使用
+```
