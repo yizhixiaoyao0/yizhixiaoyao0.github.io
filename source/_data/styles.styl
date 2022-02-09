@@ -7,8 +7,14 @@
   fon-weight: 400;
   src: url('/font/Candyhome.ttf')
 }
+@font-face {
+  font-family: "ZhuZiAWan";
+  font-styles: italic;
+  fon-weight: 400;
+  src: url('/font/ZhuZiAWan.ttf')
+}
 
-$font-family-chinese = "Noto Serif SC", "PingFang SC", "Microsoft YaHei";
+$font-family-chinese = "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei";
 
 $font-family-base = $font-family-chinese, sans-serif;
 $font-family-base = get_font_family('global'), $font-family-chinese, sans-serif if get_font_family('global');
@@ -27,5 +33,14 @@ $font-family-monospace = get_font_family('codes'), consolas, Menlo, monospace, $
 
 .posts-expand .post-title {
   font-family: "Candyhome";
+}
+
+#waifu #live2d {
+  width: 200px !important;
+  height: 200px !important;
+}
+
+.svg-inline--fa.fa-fw {
+  margin-right: 5px;
 }
 
