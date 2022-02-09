@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>一只小妖de博客</title>
+  
+  <subtitle>好记性不如烂笔头</subtitle>
+  <link href="https://yizhixiaoyao0.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://yizhixiaoyao0.github.io/"/>
+  <updated>2022-02-09T16:15:15.400Z</updated>
+  <id>https://yizhixiaoyao0.github.io/</id>
+  
+  <author>
+    <name>yizhixiaoyao</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>node-base-1</title>
+    <link href="https://yizhixiaoyao0.github.io/2022/02/10/node-base-1/"/>
+    <id>https://yizhixiaoyao0.github.io/2022/02/10/node-base-1/</id>
+    <published>2022-02-09T16:02:53.000Z</published>
+    <updated>2022-02-09T16:15:15.400Z</updated>
+    
+    
+    
+    
+    <category term="node" scheme="https://yizhixiaoyao0.github.io/categories/node/"/>
+    
+    
+    <category term="node" scheme="https://yizhixiaoyao0.github.io/tags/node/"/>
+    
+  </entry>
+  
+</feed>
