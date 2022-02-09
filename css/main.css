@@ -4,8 +4,21 @@
   fon-weight: 400;
   src: url("/font/Candyhome.ttf");
 }
+@font-face {
+  font-family: "ZhuZiAWan";
+  font-styles: italic;
+  fon-weight: 400;
+  src: url("/font/ZhuZiAWan.ttf");
+}
 .posts-expand .post-title {
   font-family: "Candyhome";
+}
+#waifu #live2d {
+  width: 200px !important;
+  height: 200px !important;
+}
+.svg-inline--fa.fa-fw {
+  margin-right: 5px;
 }
 :root {
   --body-bg-color: #f5f7f9;
@@ -186,7 +199,7 @@ body {
 body {
   background: var(--body-bg-color);
   color: var(--text-color);
-  font-family: 'Lato', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
 }
@@ -213,7 +226,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -372,7 +385,7 @@ td {
   line-height: 0;
 }
 .toggle .toggle-line {
-  background: #fff;
+  background: var(--link-color);
   display: inline-block;
   height: 2px;
   left: 0;
@@ -421,7 +434,7 @@ pre {
 }
 pre,
 code {
-  font-family: consolas, Menlo, monospace, "Noto Serif SC", "PingFang SC", "Microsoft YaHei";
+  font-family: consolas, Menlo, monospace, "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei";
 }
 code {
   background: #eee;
@@ -1015,7 +1028,7 @@ pre .javascript .function {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 'Candyhome', 'Lato', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Candyhome', 'Lato', "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1049,13 +1062,13 @@ pre .javascript .function {
 }
 .site-nav-toggle .toggle,
 .site-nav-right .toggle {
-  color: var(--text-color);
+  color: var(--link-color);
   padding: 10px;
   width: 22px;
 }
 .site-nav-toggle .toggle .toggle-line,
 .site-nav-right .toggle .toggle-line {
-  background: var(--text-color);
+  background: var(--link-color);
   border-radius: 1px;
 }
 .site-nav {
@@ -1205,7 +1218,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d6d1aa;
+  background: #ffdaff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1352,6 +1365,9 @@ pre .javascript .function {
   line-height: 1.8;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.post-toc .nav {
+  display: block;
 }
 .post-toc .nav .nav-child {
   display: none;
@@ -1548,7 +1564,7 @@ pre .javascript .function {
   }
 }
 .post-body {
-  font-family: 'Lato', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1846,7 +1862,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'Lato', "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
   text-align: center;
@@ -2306,7 +2322,7 @@ ul.breadcrumb li + li:last-child {
 }
 .header-inner {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 20px;
   box-shadow: initial;
   overflow: hidden;
   padding: 0;
@@ -2341,7 +2357,7 @@ ul.breadcrumb li + li:last-child {
 }
 .content-wrap {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 20px;
   box-shadow: initial;
   box-sizing: border-box;
   padding: 40px;
@@ -2408,11 +2424,11 @@ ul.breadcrumb li + li:last-child {
 }
 .site-nav-toggle .toggle,
 .site-nav-right .toggle {
-  color: #fff;
+  color: var(--link-color);
 }
 .site-nav-toggle .toggle .toggle-line,
 .site-nav-right .toggle .toggle-line {
-  background: #fff;
+  background: var(--link-color);
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav {

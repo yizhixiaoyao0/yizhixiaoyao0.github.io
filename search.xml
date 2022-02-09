@@ -1,9 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>node-base-1</title>
+    <title>自用node基础篇-1</title>
     <url>/2022/02/10/node-base-1/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>测试博客，test</p>
+<span id="more"></span>
+<h1 id="1-nodejs-可以做什么？"><a href="#1-nodejs-可以做什么？" class="headerlink" title="1 nodejs 可以做什么？"></a>1 nodejs 可以做什么？</h1><ul>
+<li>轻量级、高性能的web服务</li>
+<li>前后端js同构开发</li>
+<li>便捷高效的前端工程化</li>
+</ul>
+<h1 id="2-nodejs架构"><a href="#2-nodejs架构" class="headerlink" title="2 nodejs架构"></a>2 nodejs架构</h1><ul>
+<li><p>natives modules</p>
+<ul>
+<li>当前曾内容由js实现</li>
+<li>提供应用程序可直接调用库， 例如fs、 path等</li>
+<li>js语言无法直接操作底层硬件设置</li>
+</ul>
+</li>
+<li><p>builtin module 胶水层： 让node核心模块获得支持</p>
+</li>
+<li><p>v8、lib<br> v8： 执行js代码、 提供桥梁接口<br> libuv: 事件循环、事件队列、异步io；<br> 第三方库</p>
+</li>
+</ul>
+<h1 id="3-nodejs单线程：主线撑是单线程"><a href="#3-nodejs单线程：主线撑是单线程" class="headerlink" title="3 nodejs单线程：主线撑是单线程"></a>3 nodejs单线程：主线撑是单线程</h1><h1 id="4-nodejs核心模块以及api使用"><a href="#4-nodejs核心模块以及api使用" class="headerlink" title="4 nodejs核心模块以及api使用"></a>4 nodejs核心模块以及api使用</h1><h1 id="5-nodejs演化"><a href="#5-nodejs演化" class="headerlink" title="5 nodejs演化"></a>5 nodejs演化</h1><p>io是计算机操作过程中最缓慢的</p>
+<p>reactor模式，单线程完成多线程工作，实现异步io、事件驱动</p>
+<p>nodejs更适合密集型高并发请求</p>
+<h1 id="6-node异步io和事件驱动"><a href="#6-node异步io和事件驱动" class="headerlink" title="6 node异步io和事件驱动"></a>6 node异步io和事件驱动</h1><p>  <strong>非阻塞io/阻塞io</strong></p>
+<p>  重复调用io操作、判断io是否结束。 （read、select、poll、)</p>
+<p>  期望实现无须主动判断的非阻塞io：</p>
+<p>  异步io</p>
+<ul>
+<li>io是应用程序的瓶颈所在</li>
+<li><p>异步io提高性能、不在原地等待结果返回</p>
+</li>
+<li><p>io操作属于操作系统级别， 平台都有对应的实现</p>
+</li>
+<li><p>nodejs单线程配合事件驱动架构以及libuv实现了异步io</p>
+<p><strong>事件驱动</strong></p>
+<blockquote>
+<p>事件驱动架构是软件开发中的通用模式</p>
+</blockquote>
+<p>主体发布消息， 其他实例接收消息。</p>
+</li>
+</ul>
+<h1 id="7-单线程实现高并发"><a href="#7-单线程实现高并发" class="headerlink" title="7 单线程实现高并发"></a>7 单线程实现高并发</h1><blockquote>
+<p>nodejs 异步非阻塞io配合事件回调通知， 主线程是单线程。</p>
+</blockquote>
+<p>劣势；cpu密集型会过多占用， 无法体现多核cpu的优势</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sleepTime</span>(<span class="params">time</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> sleep = <span class="title class_">Date</span>.<span class="title function_">now</span>() + time * <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">while</span>(<span class="title class_">Date</span>.<span class="title function_">now</span>() &lt; sleep) &#123;&#125;</span><br><span class="line">  <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sleepTime</span>(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&#x27;server starting.....&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8080</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;starting&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="8-nodejs-应用场景"><a href="#8-nodejs-应用场景" class="headerlink" title="8 nodejs 应用场景"></a>8 nodejs 应用场景</h1><ol>
+<li><p>io密集型高并发请求</p>
+</li>
+<li><p>操作数据库提供api服务</p>
+</li>
+<li><p>实时聊天应用程序</p>
+</li>
+</ol>
+]]></content>
       <categories>
         <category>node</category>
       </categories>
