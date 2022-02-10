@@ -1,3 +1,25 @@
+@font-face {
+  font-family: "Candyhome";
+  font-styles: italic;
+  fon-weight: 400;
+  src: url("/font/Candyhome.ttf");
+}
+@font-face {
+  font-family: "ZhuZiAWan";
+  font-styles: italic;
+  fon-weight: 400;
+  src: url("/font/ZhuZiAWan.ttf");
+}
+.posts-expand .post-title {
+  font-family: "Candyhome";
+}
+#waifu #live2d {
+  width: 200px !important;
+  height: 200px !important;
+}
+.svg-inline--fa.fa-fw {
+  margin-right: 5px;
+}
 :root {
   --body-bg-color: #f5f7f9;
   --content-bg-color: #fff;
@@ -177,7 +199,7 @@ body {
 body {
   background: var(--body-bg-color);
   color: var(--text-color);
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
 }
@@ -204,7 +226,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -286,6 +308,16 @@ kbd {
   font-family: inherit;
   padding: 0.1em 0.3em;
   white-space: nowrap;
+}
+.inline {
+  display: inline;
+}
+.post-body .inline {
+  margin-bottom: 0;
+}
+#waifu {
+  left: unset !important;
+  right: 0;
 }
 .table-container {
   overflow: auto;
@@ -402,7 +434,7 @@ pre {
 }
 pre,
 code {
-  font-family: consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+  font-family: consolas, Menlo, monospace, "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei";
 }
 code {
   background: #eee;
@@ -986,7 +1018,7 @@ pre .javascript .function {
 }
 .brand {
   border-bottom: none;
-  color: var(--brand-color);
+  color: var(--link-color);
   display: inline-block;
   line-height: 1.375em;
   padding: 0 40px;
@@ -996,13 +1028,13 @@ pre .javascript .function {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Candyhome', 'Lato', "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
 }
 .site-subtitle {
-  color: #ddd;
+  color: var(--text-color);
   font-size: 0.8125em;
   margin: 10px 0;
 }
@@ -1186,7 +1218,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1757ff;
+  background: #6a46e3;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1512,7 +1544,10 @@ pre .javascript .function {
   position: fixed;
   transition-property: bottom;
   z-index: 1100;
-  width: initial;
+  width: 24px;
+}
+.back-to-top span {
+  display: none;
 }
 .back-to-top:hover {
   color: #fc6423;
@@ -1527,7 +1562,7 @@ pre .javascript .function {
   }
 }
 .post-body {
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1825,7 +1860,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "ZhuZiAWan", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
   text-align: center;
@@ -2285,6 +2320,8 @@ ul.breadcrumb li + li:last-child {
   position: absolute;
   top: 0;
   width: 240px;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
 }
 @media (min-width: 1200px) {
   .header-inner {
@@ -2344,7 +2381,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .site-brand-container {
-  background: #222;
+  background: var(--content-bg-color);
 }
 @media (max-width: 991px) {
   .site-brand-container {
@@ -2458,6 +2495,8 @@ ul.breadcrumb li + li:last-child {
   margin-top: 100%;
   position: static;
   width: 240px;
+  border-radius: 20px;
+  overflow: hidden;
 }
 @media (max-width: 991px) {
   .sidebar {
@@ -2469,7 +2508,7 @@ ul.breadcrumb li + li:last-child {
 }
 .sidebar-inner {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 20px;
   box-shadow: initial;
   box-sizing: border-box;
   color: var(--text-color);
