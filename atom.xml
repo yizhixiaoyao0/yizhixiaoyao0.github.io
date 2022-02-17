@@ -6,7 +6,7 @@
   <link href="https://yizhixiaoyao0.github.io/atom.xml" rel="self"/>
   
   <link href="https://yizhixiaoyao0.github.io/"/>
-  <updated>2022-02-10T01:49:25.892Z</updated>
+  <updated>2022-02-17T07:01:33.800Z</updated>
   <id>https://yizhixiaoyao0.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开发实践问题记录</title>
+    <link href="https://yizhixiaoyao0.github.io/2022/02/17/q-22217/"/>
+    <id>https://yizhixiaoyao0.github.io/2022/02/17/q-22217/</id>
+    <published>2022-02-17T06:24:01.000Z</published>
+    <updated>2022-02-17T07:01:33.800Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于 H5 开发遇到的问题&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="H5" scheme="https://yizhixiaoyao0.github.io/categories/H5/"/>
+    
+    
+    <category term="H5" scheme="https://yizhixiaoyao0.github.io/tags/H5/"/>
+    
+    <category term="微信sdk" scheme="https://yizhixiaoyao0.github.io/tags/%E5%BE%AE%E4%BF%A1sdk/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>node事件循环</title>
+    <link href="https://yizhixiaoyao0.github.io/2022/02/10/node-base-2/"/>
+    <id>https://yizhixiaoyao0.github.io/2022/02/10/node-base-2/</id>
+    <published>2022-02-10T07:36:46.000Z</published>
+    <updated>2022-02-10T10:40:17.821Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;主线程是单线程执行的，但是 Node.js 存在多线程执行，多线程包括 setTimeout 和异步 I/O 事件。其实 Node.js 还存在其他的线程，包括垃圾回收、内存优化等。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="node" scheme="https://yizhixiaoyao0.github.io/categories/node/"/>
+    
+    
+    <category term="node" scheme="https://yizhixiaoyao0.github.io/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>自用node基础篇-1</title>

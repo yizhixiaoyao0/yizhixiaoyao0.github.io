@@ -1,6 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>开发实践问题记录</title>
+    <url>/2022/02/17/q-22217/</url>
+    <content><![CDATA[<p>关于 H5 开发遇到的问题</p>
+<span id="more"></span>
+<h1 id="1-关于-H5-微信平台内分享-转发不显示卡片问题"><a href="#1-关于-H5-微信平台内分享-转发不显示卡片问题" class="headerlink" title="1. 关于 H5 微信平台内分享/转发不显示卡片问题"></a>1. 关于 H5 微信平台内分享/转发不显示卡片问题</h1><p>全域名开放造成的，目前从下面三个入口进入还可以进行分享。</p>
+<p>1.公众号菜单访问后分享</p>
+<p>2.生成二维码，识别二维码后分享</p>
+<p>3.访问页面后添加到收藏，从微信收藏中进入后分享</p>
+<ol>
+<li>app 内分享卡片后分享</li>
+</ol>
+<h1 id="2-关于-H5-微信平台内分享音频卡片"><a href="#2-关于-H5-微信平台内分享音频卡片" class="headerlink" title="2. 关于 H5 微信平台内分享音频卡片"></a>2. 关于 H5 微信平台内分享音频卡片</h1><p>微信官方开发文档中虽然有提及 H5 分享好友时候可以设置 type 为 music、video， 实践后并不可以，可能与 1 有类似原因，在开放社区未看到回复。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.<span class="title function_">onMenuShareAppMessage</span>(&#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// 分享标题</span></span><br><span class="line">  <span class="attr">desc</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// 分享描述</span></span><br><span class="line">  <span class="attr">link</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">  <span class="attr">imgUrl</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// 分享图标</span></span><br><span class="line">  <span class="attr">type</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// 分享类型,music、video或link，不填默认为link</span></span><br><span class="line">  <span class="attr">dataUrl</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// 如果type是music或video，则要提供数据链接，默认为空</span></span><br><span class="line">  <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 用户点击了分享后执行的回调函数</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>移动端可以实现分享音视频， app 内嵌套 h5 可调用原生提供的分享方法。</p>
+<h1 id="3-关于-H5-播放部分视频"><a href="#3-关于-H5-播放部分视频" class="headerlink" title="3. 关于 H5 播放部分视频"></a>3. 关于 H5 播放部分视频</h1><p>需求：由于视频剪辑工作量过大，是否可以前端来控制部分播放</p>
+<p>事实上 web 端播放视屏需要实时下载，对于全量视屏链接只播放部分并不合理，很容易被扒。</p>
+<p>初步考虑：</p>
+<ul>
+<li>还是由人工剪辑，返回部分链接</li>
+<li>后端来直接从文件流截取实现获取部分片段然后上传，给到前端链接</li>
+<li>后端提供一个链接，ffmpeg 在线转码用 nginx 推送给 web</li>
+</ul>
+<p>最后还是人工剪辑 hhhhh ～ 😊</p>
+<h1 id="4-ios-端-H5-无法直接唤起-app"><a href="#4-ios-端-H5-无法直接唤起-app" class="headerlink" title="4. ios 端 H5 无法直接唤起 app"></a>4. ios 端 H5 无法直接唤起 app</h1><p>目前 H5 使用 <a href="https://www.jianshu.com/p/77b530f0c67b">deeplink</a>的唤醒方式</p>
+<ul>
+<li><p>网络波动有可能会导致部分用户第一次安装时，无法下载 apple-app-site-association 文件，这个只能引导用户删除重装或者在迭代时修改 Associated Domains 配置告诉系统重新下载 apple-app-site-association 文件。</p>
+</li>
+<li><p>另外一种可能是苹果抽风导致</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>H5</category>
+      </categories>
+      <tags>
+        <tag>H5</tag>
+        <tag>微信sdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node事件循环</title>
+    <url>/2022/02/10/node-base-2/</url>
+    <content><![CDATA[<p>主线程是单线程执行的，但是 Node.js 存在多线程执行，多线程包括 setTimeout 和异步 I/O 事件。其实 Node.js 还存在其他的线程，包括垃圾回收、内存优化等。</p>
+<span id="more"></span>
+<div class="note blue fas fa-bullhorn modern">
+            <p>转载至拉钩教育….</p>
+          </div>
+<h1 id="事件循环模型"><a href="#事件循环模型" class="headerlink" title="事件循环模型"></a>事件循环模型</h1><div class="img-wrap"><div class="img-bg"><img class="img" src="/images/libuv.jpeg" style="width:80%;"/></div></div>
+<p>可以看到，这一流程包含六个阶段，每个阶段代表如下：</p>
+<ul>
+<li><p>timers:<br>本阶段执行已经被 setTimeout() 和 setInterval() 调度的回调函数，简单理解就是由这两个函数启动的回调函数。</p>
+</li>
+<li><p>pending callbacks：<br>本阶段执行某些系统操作（如 TCP 错误类型）的回调函数。</p>
+</li>
+<li><p>idle、prepare：<br>仅系统内部使用，你只需要知道有这 2 个阶段就可以。</p>
+</li>
+<li><p>poll：<br>检索新的 I/O 事件，执行与 I/O 相关的回调，其他情况 Node.js 将在适当的时候在此阻塞。这也是最复杂的一个阶段，所有的事件循环以及回调处理都在这个阶段执行，接下来会详细分析这个过程。</p>
+</li>
+<li><p>check：<br>setImmediate() 回调函数在这里执行，setImmediate 并不是立马执行，而是当事件循环 poll 中没有新的事件处理时就执行该部分，</p>
+</li>
+</ul>
+<h1 id="运行起点"><a href="#运行起点" class="headerlink" title="运行起点"></a>运行起点</h1><p>从图 1 中我们可以看出事件循环的起点是 timers。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;2&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>在代码 setTimeout 中的回调函数就是新一轮事件循环的起点，那么为什么先输出 2 后输出 1？</p>
+<p>这里有一个非常关键点，当 Node.js 启动后，会初始化事件循环，处理已提供的输入脚本，它可能会先调用一些异步的 API、调度定时器，或者 process.nextTick()，然后再开始处理事件循环。因此可以这样理解，Node.js 进程启动后，就发起了一个新的事件循环，也就是事件循环的起点。</p>
+<h1 id="Node-js-事件循环"><a href="#Node-js-事件循环" class="headerlink" title="Node.js 事件循环"></a>Node.js 事件循环</h1><p>事件循环主要包括微任务和宏任务。</p>
+<ul>
+<li><p><strong>微任务</strong>：在 Node.js 中微任务包含 2 种——process.nextTick 和 Promise。微任务在事件循环中优先级是最高的，因此在同一个事件循环中有其他任务存在时，优先执行微任务队列。并且 process.nextTick 和 Promise 也存在优先级，process.nextTick 高于 Promise。</p>
+</li>
+<li><p><strong>宏任务</strong>：在 Node.js 中宏任务包含 4 种——setTimeout、setInterval、setImmediate 和 I/O。宏任务在微任务执行之后执行，因此在同一个事件循环周期内，如果既存在微任务队列又存在宏任务队列，那么优先将微任务队列清空，再执行宏任务队列。这也解释了我们前面提到的第 3 个问题，事件循环中的事件类型是存在优先级。</p>
+</li>
+</ul>
+<h2 id="执行阶段主要处理三个核心逻辑。"><a href="#执行阶段主要处理三个核心逻辑。" class="headerlink" title="执行阶段主要处理三个核心逻辑。"></a>执行阶段主要处理三个核心逻辑。</h2><ul>
+<li><p>同步代码。</p>
+</li>
+<li><p>将异步任务插入到微任务队列或者宏任务队列中。</p>
+</li>
+<li><p>执行微任务或者宏任务的回调函数。在主线程处理回调函数的同时，也需要判断是否插入微任务和宏任务。根据优先级，先判断微任务队列是否存在任务，存在则先执行微任务，不存在则判断在宏任务队列是否有任务，有则执行。</p>
+</li>
+</ul>
+<p>如果微任务和宏任务都只有一层时，那么看起来是比较简单的，比如下面的例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 首次事件循环执行</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;start&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 将会在新的事件循环中的阶段执行</span></span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&quot;./test.conf&quot;</span>, &#123; <span class="attr">encoding</span>: <span class="string">&quot;utf-8&quot;</span> &#125;, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;read file success&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 新的事件循环的起点</span></span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;setTimeout&quot;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 该部分将会在首次事件循环中执行</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Promise callback&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 执行 process.nextTick</span></span><br><span class="line"></span><br><span class="line">process.<span class="title function_">nextTick</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;nextTick callback&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 首次事件循环执行</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;end&quot;</span>);</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>根据上面介绍的执行过程，我们来分析下上面代码的执行过程：</p>
+</li>
+<li><p>第一个事件循环主线程发起，因此先执行同步代码，所以先输出 start，然后输出 end；</p>
+</li>
+<li><p>再从上往下分析，遇到微任务，插入微任务队列，遇到宏任务，插入宏任务队列，分析完成后，微任务队列包含：Promise.resolve 和 process.nextTick，宏任务队列包含：fs.readFile 和 setTimeout；</p>
+</li>
+<li><p>先执行微任务队列，但是根据优先级，先执行 process.nextTick 再执行 Promise.resolve，所以先输出 nextTick callback 再输出 Promise callback；</p>
+</li>
+</ol>
+<p>再执行宏任务队列，根据宏任务插入先后顺序执行 setTimeout 再执行 fs.readFile，这里需要注意，先执行 setTimeout 由于其回调时间较短，因此回调也先执行，并非是 setTimeout 先执行所以才先执行回调函数，但是它执行需要时间肯定大于 1ms，所以虽然 fs.readFile 先于 setTimeout 执行，但是 setTimeout 执行更快，所以先输出 setTimeout ，最后输出 read file success。</p>
+<p>可以得到:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">start</span><br><span class="line">end</span><br><span class="line">nextTick callback</span><br><span class="line">Promise callback</span><br><span class="line">setTimeout</span><br><span class="line">read file success</span><br></pre></td></tr></table></figure>
+<p>但是当微任务和宏任务又产生新的微任务和宏任务时，又应该如何处理呢？如下代码所示：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 新的事件循环的起点</span></span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line"></span><br><span class="line">  fs.<span class="title function_">readFile</span>(<span class="string">&quot;./config/test.conf&quot;</span>, &#123; <span class="attr">encoding</span>: <span class="string">&quot;utf-8&quot;</span> &#125;, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;read file sync success&quot;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 回调将会在新的事件循环之前</span></span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&quot;./config/test.conf&quot;</span>, &#123; <span class="attr">encoding</span>: <span class="string">&quot;utf-8&quot;</span> &#125;, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;read file success&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 该部分将会在首次事件循环中执行</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;poll callback&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 首次事件循环执行</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;2&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>在上面代码中，有 2 个宏任务和 1 个微任务，宏任务是 setTimeout 和 fs.readFile，微任务是 Promise.resolve。</p>
+<ol>
+<li><p>整个过程优先执行主线程的第一个事件循环过程，所以先执行同步逻辑，先输出 2。</p>
+</li>
+<li><p>接下来执行微任务，输出 poll callback。</p>
+</li>
+<li><p>再执行宏任务中的 fs.readFile 和 setTimeout，由于 fs.readFile 优先级高，先执行 fs.readFile。但是处理时间长于 1ms，因此会先执行 setTimeout 的回调函数，输出 1。这个阶段在执行过程中又会产生新的宏任务 fs.readFile，因此又将该 fs.readFile 插入宏任务队列。</p>
+</li>
+<li><p>最后由于只剩下宏任务了 fs.readFile，因此执行该宏任务，并等待处理完成后的回调，输出 read file sync success。</p>
+</li>
+</ol>
+<p>根据上面的分析，我们可以得出最后的执行结果，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2</span><br><span class="line">poll callback</span><br><span class="line">1</span><br><span class="line">read file success</span><br><span class="line">read file sync success</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在上面的例子中，我们来思考一个问题，主线程是否会被阻塞，具体我们来看一个代码例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 新的事件循环的起点</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">  <span class="title function_">sleep</span>(<span class="number">10000</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;sleep 10s&quot;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="comment">/// 将会在 poll 阶段执行</span></span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&quot;./test.conf&quot;</span>, &#123; <span class="attr">encoding</span>: <span class="string">&quot;utf-8&quot;</span> &#125;, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;read file success&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;2&quot;</span>);</span><br><span class="line"><span class="comment">/// 函数实现，参数 n 单位 毫秒 ；</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sleep</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> start = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>();</span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>() - start &gt; n) &#123;</span><br><span class="line">      <span class="comment">// 使用  break  实现；</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们在 setTimeout 中增加了一个阻塞逻辑，这个阻塞逻辑的现象是，只有等待当次事件循环结束后，才会执行 fs.readFile 回调函数。这里会发现 fs.readFile 其实已经处理完了，并且通知回调到了主线程，但是由于主线程在处理回调时被阻塞了，导致无法处理 fs.readFile 的回调。因此可以得出一个结论，主线程会因为回调函数的执行而被阻塞，这也符合图 2 中的执行流程图。</p>
+<p>如果把上面代码中 setTimeout 的时间修改为 10 ms，你将会优先看到 fs.readFile 的回调函数，因为 fs.readFile 执行完成了，并且还未启动下一个事件循环，修改的代码如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 新的事件循环的起点</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">  <span class="title function_">sleep</span>(<span class="number">10000</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;sleep 10s&quot;</span>);</span><br><span class="line">&#125;, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p>最后我们再来回答第 5 个问题，当所有的微任务和宏任务都清空的时候，虽然当前没有任务可执行了，但是也并不能代表循环结束了。因为可能存在当前还未回调的异步 I/O，所以这个循环是没有终点的，只要进程在，并且有新的任务存在，就会去执行。</p>
+<h1 id="实践分析"><a href="#实践分析" class="headerlink" title="实践分析"></a>实践分析</h1><p>了解了整个原理流程，我们再来实践验证下 Node.js 的事件驱动，以及 I/O 到底有什么效果和为什么能提高并发处理能力。我们的实验分别从同步和异步的代码性能分析对比，从而得出两者的差异。</p>
+<p>Node.js 不善于处理 CPU 密集型的业务，就会导致性能问题，如果要实现一个耗时 CPU 的计算逻辑，处理方法有 2 种：</p>
+<p>直接在主业务流程中处理；</p>
+<p>通过网络异步 I/O 给其他进程处理。</p>
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自用node基础篇-1</title>
     <url>/2022/02/10/node-base-1/</url>
     <content><![CDATA[<p>测试博客，test</p>
