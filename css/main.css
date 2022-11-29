@@ -13,6 +13,11 @@
 .posts-expand .post-title {
   font-family: "Candyhome";
 }
+body,
+a,
+span.exturl {
+  cursor: url("https://blog-static.cnblogs.com/files/lucas--liu/cat6.ico"), auto !important;
+}
 #waifu #live2d {
   width: 200px !important;
   height: 200px !important;
@@ -1218,7 +1223,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffdaff;
+  background: #ff4b3e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;

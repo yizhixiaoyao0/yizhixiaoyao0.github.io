@@ -6,7 +6,7 @@
   <link href="https://yizhixiaoyao0.github.io/atom.xml" rel="self"/>
   
   <link href="https://yizhixiaoyao0.github.io/"/>
-  <updated>2022-02-09T20:13:53.586Z</updated>
+  <updated>2022-11-29T09:04:08.841Z</updated>
   <id>https://yizhixiaoyao0.github.io/</id>
   
   <author>
@@ -17,11 +17,114 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>深入理解浏览器中的进程与线程</title>
+    <link href="https://yizhixiaoyao0.github.io/2022/11/29/web-base-1-js/"/>
+    <id>https://yizhixiaoyao0.github.io/2022/11/29/web-base-1-js/</id>
+    <published>2022-11-29T08:55:08.000Z</published>
+    <updated>2022-11-29T09:04:08.841Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;进程和线程的联系和区别&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="浏览器" scheme="https://yizhixiaoyao0.github.io/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+    <category term="web" scheme="https://yizhixiaoyao0.github.io/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/web/"/>
+    
+    
+    <category term="web" scheme="https://yizhixiaoyao0.github.io/tags/web/"/>
+    
+    <category term="浏览器" scheme="https://yizhixiaoyao0.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+    <category term="进程与线程" scheme="https://yizhixiaoyao0.github.io/tags/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机图形学基础01 - 向量与线性代数</title>
+    <link href="https://yizhixiaoyao0.github.io/2022/11/15/graphics0-1/"/>
+    <id>https://yizhixiaoyao0.github.io/2022/11/15/graphics0-1/</id>
+    <published>2022-11-15T14:59:21.000Z</published>
+    <updated>2022-11-15T17:08:54.986Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;图形学依赖于线性代数、微积分、信号处理、数值分析等&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="计算机图形学基础" scheme="https://yizhixiaoyao0.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="计算机图形学基础" scheme="https://yizhixiaoyao0.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日一题 —— 两个整数之和</title>
+    <link href="https://yizhixiaoyao0.github.io/2022/11/15/algorithm/"/>
+    <id>https://yizhixiaoyao0.github.io/2022/11/15/algorithm/</id>
+    <published>2022-11-15T14:39:07.000Z</published>
+    <updated>2022-11-15T14:57:37.866Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;给你两个整数 a 和 b ，不使用 运算符 + 和 - ​​​​​​​，计算并返回两整数之和。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="算法与数据结构" scheme="https://yizhixiaoyao0.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="算法与数据结构" scheme="https://yizhixiaoyao0.github.io/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开发实践问题记录</title>
+    <link href="https://yizhixiaoyao0.github.io/2022/02/17/q-22217/"/>
+    <id>https://yizhixiaoyao0.github.io/2022/02/17/q-22217/</id>
+    <published>2022-02-17T06:24:01.000Z</published>
+    <updated>2022-11-15T14:32:24.549Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于 H5 开发遇到的问题&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="H5" scheme="https://yizhixiaoyao0.github.io/categories/H5/"/>
+    
+    
+    <category term="H5" scheme="https://yizhixiaoyao0.github.io/tags/H5/"/>
+    
+    <category term="微信sdk" scheme="https://yizhixiaoyao0.github.io/tags/%E5%BE%AE%E4%BF%A1sdk/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>node事件循环</title>
+    <link href="https://yizhixiaoyao0.github.io/2022/02/10/node-base-2/"/>
+    <id>https://yizhixiaoyao0.github.io/2022/02/10/node-base-2/</id>
+    <published>2022-02-10T07:36:46.000Z</published>
+    <updated>2022-11-15T14:32:24.549Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;主线程是单线程执行的，但是 Node.js 存在多线程执行，多线程包括 setTimeout 和异步 I/O 事件。其实 Node.js 还存在其他的线程，包括垃圾回收、内存优化等。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="node" scheme="https://yizhixiaoyao0.github.io/categories/node/"/>
+    
+    
+    <category term="node" scheme="https://yizhixiaoyao0.github.io/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
     <title>自用node基础篇-1</title>
     <link href="https://yizhixiaoyao0.github.io/2022/02/10/node-base-1/"/>
     <id>https://yizhixiaoyao0.github.io/2022/02/10/node-base-1/</id>
     <published>2022-02-09T16:02:53.000Z</published>
-    <updated>2022-02-09T20:13:53.586Z</updated>
+    <updated>2022-11-15T14:32:24.549Z</updated>
     
     
     <summary type="html">&lt;p&gt;测试博客，test&lt;/p&gt;</summary>
